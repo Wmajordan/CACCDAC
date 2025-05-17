@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CACC DAC</title>
+  <link rel="stylesheet" href="main.css" />
+  <link rel="apple-touch-icon" href="icon.png" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <h1>CACC DAC</h1>
+
+  <div class="section">
+    <label for="volunteer-name"><strong>Volunteer Name:</strong></label>
+    <input type="text" id="volunteer-name" placeholder="Enter your name">
+  </div>
+
+  <div class="section">
+    <h2>Add or Edit Animal</h2>
+    <input type="hidden" id="animal-id">
+    <input type="text" id="animal-name" placeholder="Animal Name">
+    
+    <select id="animal-type">
+      <option value="Cat">Cat</option>
+      <option value="Dog">Dog</option>
+    </select>
+    
+    <select id="animal-gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+    
+    <input type="text" id="kennel-number" placeholder="Kennel Number">
+
+    <select id="animal-color">
+      <option value="Gray">Gray</option>
+      <option value="Yellow">Yellow</option>
+      <option value="Orange">Orange</option>
+    </select>
+
+    <input type="date" id="intake-date">
+    <input type="text" id="animal-notes" placeholder="Notes about the animal">
+
+    <div style="display: flex; flex-direction: column; align-items: flex-start; margin-top: 10px;">
+  <label for="animal-media"><strong>Upload Photos/Videos:</strong></label>
+  <input type="file" id="animal-media" accept="image/*,video/*" multiple>
+</div>
+
+    <button onclick="saveAnimal()">Save Animal</button>
+  </div>
+
+  <div class="section">
+    <h2>Available Animals</h2>
+    <button onclick="showAnimals('Cat')">View Cats</button>
+    <button onclick="showAnimals('Dog')">View Dogs</button>
+    <button onclick="showAnimals('All')">View All</button>
+
+    <table id="animal-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Gender</th>
+          <th>Kennel</th>
+          <th>Color</th>
+          <th>Intake Date</th>
+          <th>Notes</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- Modal for Photos/Videos -->
+  <div id="photo-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" onclick="closePhotoModal()">&times;</span>
+      <h3>Animal Photos/Videos</h3>
+      <div id="photo-container"></div>
+    </div>
+  </div>
+</body>
+</html>
